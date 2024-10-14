@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
@@ -66,5 +66,5 @@ export default function Navbar(props) {
     </nav>
   );
 }
-Navbar.prototypes = { tittle: PropTypes.string, about: PropTypes.string };
-Navbar.defaultProps = { tittle: "Set Tittle Here", about: "Set About Here" };
+// Navbar.prototypes = { tittle: PropTypes.string, about: PropTypes.string };
+// Navbar.defaultProps = { tittle: "Set Tittle Here", about: "Set About Here" };

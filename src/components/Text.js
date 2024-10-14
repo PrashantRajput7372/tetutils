@@ -1,20 +1,28 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 export default function Text(props) {
   const [text, setText] = useState("");
   const handelUpClick = () => {
+    if (!text.length) return props.showAlert("No text found", "danger");
     setText(text.toUpperCase());
+    props.showAlert("Text Converted to UPPERCASE", "success");
   };
   const handelLoClick = () => {
+    if (!text.length) return props.showAlert("No text found", "danger");
     setText(text.toLowerCase());
+    props.showAlert("Text Converted to lowercase", "success");
   };
   const handelClean = () => {
+    if (!text.length) return props.showAlert("No text to clear", "danger");
     setText("");
+    props.showAlert("Text Cleared", "warning");
   };
 
   const handelRevClick = () => {
+    if (!text.length) return props.showAlert("No text found", "danger");
     setText(text.split("").reverse("").join(""));
+    props.showAlert("Text Reversed", "success");
   };
 
   const first = (text) => {
@@ -32,7 +40,9 @@ export default function Text(props) {
   };
 
   const handelOnlyfirstuppercase = () => {
+    if (!text.length) return props.showAlert("No text found", "danger");
     setText(first(text));
+    props.showAlert("First Letter converted to CAP's", "success");
   };
 
   const handleonChange = (e) => {
@@ -127,5 +137,5 @@ export default function Text(props) {
   );
 }
 
-Text.ProtoTypes = { tittle: PropTypes.string };
-Text.defaultProps = { tittle: "Kidly enter text here" };
+// Text.ProtoTypes = { tittle: PropTypes.string };
+// Text.defaultProps = { tittle: "Kidly enter text here" };
