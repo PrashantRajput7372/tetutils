@@ -68,7 +68,7 @@ export default function Text(props) {
           rows="8"
           style={{
             backgroundColor: props.mode === "light" ? "white" : "black",
-            color: props.mode === "light" ? "dark" : "white",
+            color: props.mode === "light" ? "black" : "white",
           }}
         ></textarea>
         <button
