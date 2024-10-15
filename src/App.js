@@ -7,9 +7,10 @@ import React, { useState } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
+  // Route,
+  // Link,
 } from "react-router-dom";
+// import TextUtiles from "./components/TextUtiles";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -39,30 +40,68 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Text />,
+      element: (
+        <>
+          {" "}
+          <Navbar
+            tittle="TextUtils"
+            about="About TextUtiles"
+            mode={mode}
+            toggeleMode={toggele}
+          />
+          <Alert alert={alrt} />
+          <div className="container">
+            <Text
+              showAlert={showAlert}
+              tittle="Text Utiles - Words Counter | Charecter Counter | lowercase to uppercase | uppercase to lowercase"
+              mode={mode}
+            />
+          </div>
+        </>
+      ),
+    },
+    {
+      path: "/home",
+      element: (
+        <>
+          {" "}
+          <Navbar
+            tittle="TextUtils"
+            about="About TextUtiles"
+            mode={mode}
+            toggeleMode={toggele}
+          />
+          <Alert alert={alrt} />
+          <div className="container">
+            <Text
+              showAlert={showAlert}
+              tittle="Enter Text To Analyze"
+              mode={mode}
+            />
+          </div>
+        </>
+      ),
     },
     {
       path: "/about",
-      element: <About />,
+      element: (
+        <>
+          {" "}
+          <Navbar
+            tittle="TextUtils"
+            about="About TextUtiles"
+            mode={mode}
+            toggeleMode={toggele}
+          />
+          <Alert alert={alrt} />
+          <About mode={mode} />
+        </>
+      ),
     },
   ]);
   return (
     <>
-      <Navbar
-        tittle="TextUtils"
-        about="About TextUtiles"
-        mode={mode}
-        toggeleMode={toggele}
-      />
-      <Alert alert={alrt} />
-      <div className="container">
-        <Text
-          showAlert={showAlert}
-          tittle="Enter Text To Analyze"
-          mode={mode}
-        />
-        <About mode={mode} />
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }

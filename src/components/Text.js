@@ -117,8 +117,10 @@ export default function Text(props) {
           <b>Text Summary</b>
         </h3>
         <p>
-          {text.length === 0 ? 0 : text.split(" ").length - 1} words,{" "}
-          {text.length} Charecters
+          {text.length === 0
+            ? 0
+            : text.split(" ").filter((e) => e.length !== 0).length}{" "}
+          words, {text.split("").filter((e) => e !== " ").length} Charecters
         </p>
         <p>
           {text.length === 0
