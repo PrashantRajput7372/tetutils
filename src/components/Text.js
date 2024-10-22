@@ -27,7 +27,7 @@ export default function Text(props) {
 
   const first = (text) => {
     // let word = text.toLowerCase();
-    let x = text.toLowerCase().split(" ");
+    let x = text.toLowerCase().split(/\s+/);
     let str = "";
     x.forEach((e) => {
       let y = e.charAt(0).toUpperCase() + e.slice(1);
@@ -119,7 +119,7 @@ export default function Text(props) {
         <p>
           {text.length === 0
             ? 0
-            : text.split(" ").filter((e) => e.length !== 0).length}{" "}
+            : text.split(/\s+/).filter((e) => e.length !== 0).length}{" "}
           words, {text.split("").filter((e) => e !== " ").length} Charecters
         </p>
         <p>
